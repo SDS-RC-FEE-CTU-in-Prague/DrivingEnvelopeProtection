@@ -1,0 +1,77 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = IPGRoad 10.0
+FileCreator = CarMaker for Simulink 10.1
+LibVersion = 10.1
+Country = DEU
+nLinks = 1
+nJunctions = 0
+nObjects = 67
+nRoutes = 1
+RoadNetworkLength = 162.577849110244
+BBox = -16.9995127956766 89.136156109066 -10.0825870641141 164.796743999461 -11 11
+Route.0.Length = 162.577849110244
+RST.Unit = kmh
+RST = 50 100 130 30 70 30 0 -1
+Movie = 0.2 1 0.01 1.5 1.5 1 1
+PathMode = -1
+Link.0.ID = 0
+Link.0.Node0 = 0 0 0 89.324
+Link.0.Node1 = 79.0706723106807 98.2802739936891 0 0.535999999999989
+Link.0.RST = Countryroad
+Link.0.RL.ID = 1
+Link.0.Seg.0.ID = 5
+Link.0.Seg.0.Type = Straight
+Link.0.Seg.0.Param = 50 0 0 0 0 0 0 0
+Link.0.Seg.1.ID = 65
+Link.0.Seg.1.Type = ClothRight
+Link.0.Seg.1.Param = 100000 19.781 88.788 0 0 0 0 0
+Link.0.Seg.2.ID = 61
+Link.0.Seg.2.Type = Straight
+Link.0.Seg.2.Param = 51.283 0 0 0 0 0 0 0
+Link.0.LaneSection.0.ID = 6
+Link.0.LaneSection.0.Start = 0
+Link.0.LaneSection.0.LaneL.0.ID = 7
+Link.0.LaneSection.0.LaneL.0 = 0 3.5 3.5 0 0 0 0
+Link.0.LaneSection.0.LaneL.0.ARP = 8 9 10 11 12 13
+Link.0.LaneSection.0.LaneL.1.ID = 18
+Link.0.LaneSection.0.LaneL.1 = 0 1 1 4 0 0 0
+Link.0.LaneSection.0.LaneL.1.ARP = 19 20 21 22 23 24
+Link.0.LaneSection.0.LaneL.2.ID = 26
+Link.0.LaneSection.0.LaneL.2 = 0 2.5 2.5 5 0 0 0
+Link.0.LaneSection.0.LaneR.0.ID = 27
+Link.0.LaneSection.0.LaneR.0 = 0 3.5 3.5 0 0 0 0
+Link.0.LaneSection.0.LaneR.0.ARP = 28 29 30 31 32 33
+Link.0.LaneSection.0.LaneR.1.ID = 42
+Link.0.LaneSection.0.LaneR.1 = 0 1 1 4 0 0 0
+Link.0.LaneSection.0.LaneR.1.ARP = 43 44 45 46 47 48
+Link.0.LaneSection.0.LaneR.2.ID = 50
+Link.0.LaneSection.0.LaneR.2 = 0 2.5 2.5 5 0 0 0
+LanePath.0 = 14 7 2 10 0.1 0.1
+LanePath.1 = 25 18 0.25 10 0.1 0.1
+LanePath.2 = 34 27 2 10 0.1 0.1
+LanePath.3 = 49 42 0.25 10 0.1 0.1
+UserPath.0 = 56 0 1 -1 -1 1
+UserPath.0.Nodes:
+	57 0 0 2 0.012 -999
+	58 0 0 3 -0.004 -999
+Route.0.ID = 63
+Route.0.Name = Route_0
+Route.0.DrvPath.ID = 64
+Route.0.DrvPath:
+	56
+RL.1.RoadMarking.0.ID = 17 7
+RL.1.RoadMarking.0 = 0 0 0 1 0 1 0.15 0 1 0 0 2 4 1 1 0 ""
+RL.1.RoadMarking.0.Material.0 = 1.0,1.0,1.0 0 0 0 0 0 0 1 1 0 0 0
+RL.1.RoadMarking.1.ID = 41 27
+RL.1.RoadMarking.1 = 0 0 0 1 0 -1 0.15 0 1 0 0 2 4 1 1 0 ""
+RL.1.RoadMarking.1.Material.0 = 1.0,1.0,1.0 0 0 0 0 0 0 1 1 0 0 0
+RL.1.RoadMarking.2.ID = 51 6
+RL.1.RoadMarking.2 = 0 0 0 1 0 0 0.15 0 2 0 0 2 4 1 1 0 ""
+RL.1.RoadMarking.2.Material.0 = 1.0,1.0,1.0 0 0 0 0 0 0 1 1 0 0 0
+RL.1.Bump.0.ID = 62 1
+RL.1.Bump.0.Type = Friction
+RL.1.Bump.0.Param = 80 0 110 0 -3.634 0 0 0.7 0 3.5
+RL.1.Bump.1.ID = 66 1
+RL.1.Bump.1.Type = Friction
+RL.1.Bump.1.Param = 80 0 110 0 0 0 0 0.7 0 3.5
+MaxUsedObjId = 66

@@ -1,0 +1,59 @@
+#INFOFILE1.1 - Do not remove this line!
+FileIdent = IPGRoad 10.0
+FileCreator = CarMaker for Simulink 10.1
+LibVersion = 10.1
+Country = DEU
+nLinks = 1
+nJunctions = 0
+nObjects = 36
+nRoutes = 1
+RoadNetworkLength = 837.758040957278
+BBox = -210.999112485963 322.866120518146 -457.41201458601 23.6963955883443 -11 11
+Route.0.Length = 837.758040957278
+RST.Unit = kmh
+RST = 50 100 -1 30 70 50 -1 -1
+Movie = 0.2 1 0.02 1.5 1.5 1 1
+PathMode = -1
+Link.0.ID = 0
+Link.0.Node0 = 0 0 0 -1.40334185970698e-014
+Link.0.Node1 = -173.205080756888 -300 0 120
+Link.0.RST = Undefined
+Link.0.RL.ID = 1
+Link.0.Seg.0.ID = 2
+Link.0.Seg.0.Type = TurnRight
+Link.0.Seg.0.Param = 200 240 0 0 0 0 0 0
+Link.0.LateralCenterLineOffset.ID = 13
+Link.0.LateralCenterLineOffset:
+	45 -1 0 0 1 2.5 -999 -999 -999
+	46 -1 503.598775598299 0 0 2.5 -999 -999 -999
+	47 -1 543.598775598299 0 1 10 -999 -999 -999
+	48 -1 0 1 0 10 -999 -999 -999
+Link.0.LaneSection.0.ID = 4
+Link.0.LaneSection.0.Start = 0
+Link.0.LaneSection.0.LaneL.0.ID = 10
+Link.0.LaneSection.0.LaneL.0 = 2 1 1 5 0 0 0
+Link.0.LaneSection.0.LaneR.0.ID = 11
+Link.0.LaneSection.0.LaneR.0 = 0 5 20 0 0 0 0
+Link.0.LaneSection.0.LaneR.0.ARP = 52 53 54 55 56 57
+Link.0.LaneSection.0.LaneR.0.Width:
+	37 -1 503.598775598299 0 0 5 0 -999 -999
+	38 -1 543.598775598299 0 0 20 0 -999 -999
+Link.0.LaneSection.0.LaneR.1.ID = 16
+Link.0.LaneSection.0.LaneR.1 = 2 1 1 5 0 0 0
+LanePath.0 = 34 11 2 10 0.1 0.1
+Route.0.ID = 5
+Route.0.Name = Route
+Route.0.DrvPath.ID = 6
+Route.0.DrvPath:
+	34
+RL.1.RoadMarking.0.ID = 3 4
+RL.1.RoadMarking.0 = 0 0 1.198 1 0 100 0.15 0 2 0 0 2 4 1 1 0 ""
+RL.1.RoadMarking.0.Material.0 = 1.0,1.0,1.0 0 0 0 0 0 0 1 1 0 0 0
+RL.1.RoadMarking.1.ID = 29 1
+RL.1.RoadMarking.1 = 0 0 0 1 -0.1 1 0.15 0 1 0 0 10 5 1 1 4 ""
+RL.1.RoadMarking.2.ID = 30 1
+RL.1.RoadMarking.2 = 0 0 0 1 0.1 -1 0.15 0 1 0 0 10 5 1 1 4 ""
+RL.1.Bump.0.ID = 28 1
+RL.1.Bump.0.Type = Friction
+RL.1.Bump.0.Param = 523.598775598299 0 524 0 -7 100 0 0.4 0 7
+MaxUsedObjId = 57
