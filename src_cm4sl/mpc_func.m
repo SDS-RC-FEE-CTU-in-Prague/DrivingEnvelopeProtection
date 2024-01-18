@@ -1,6 +1,7 @@
 function u = mpc_func(input, params, controller_on)
 
 Ts = 0.005; % used sampling time
+mu = 1; % friction estimation
 
 % vehicle parameters
 lf   = params(1); % GC-front distance
@@ -27,13 +28,14 @@ if(controller_on ~= 1 || v == 0) % check v_min and start_time boundary
 else
 
     %% define the system
-    a11 = -(caf+car)/m/v;
-    a12 = (car*lr-caf*lf)/m/v/v-1;
-    b11 = caf/m/v;
 
-    a21 = (car*lr-caf*lf)/I;
-    a22 = -(lf^2*caf+car*lr^2)/I/v;
-    b21 = caf*lf/I;
+    a11 = -mu*(caf+car)/m/v;
+    a12 = mu*(car*lr-caf*lf)/m/v/v-1;
+    b11 = mu*caf/m/v;
+
+    a21 = (mu*car*lr-caf*lf)/I;
+    a22 = -mu*(lf^2*caf+car*lr^2)/I/v;
+    b21 = mu*caf*lf/I;
 
     A = [a11, a12;
          a21, a22];
@@ -49,13 +51,13 @@ else
     
     % Weights
     steering_wheel_track = 20;
-    omega_track          = 0.005;
+    omega_track          = 0.008; % 0.005
     
     Qs   = 1e3; % slack weight
     Qenv = 1e4; % envelope weight
     Qenv_ar = 1e6;
     
-    Qdu = [50, 0.15];
+    Qdu = [50, 0.45]; % 0.1
     
     % MPC data
     R = [steering_wheel_track,omega_track];
@@ -71,7 +73,7 @@ else
     
     % slew restrictions
     delta_slew = deg2rad(120)*Ts; %rad/s
-    omega_slew = 400*Ts; 
+    omega_slew = 1000*Ts; %400
     slew = [delta_slew; omega_slew];
 
     
@@ -87,7 +89,7 @@ else
     % c11,c12,...,c1N
     % c21,c22,...,c2N
     
-    abs_num = 2; % count of abs in objective function
+    abs_num = 3; % count of abs in objective function
     var_number = (nx+nu)*N + 3*N + 2*(N+1) + abs_num*nu; %(states+inputs)*N+slacks+abs_num*inputs
     Q = zeros(var_number);
     c = zeros(var_number, 1);
@@ -153,6 +155,7 @@ else
     cons_count = cons_count + 3*nu*N;
     
     %% sigmaFL envelope and slack constrains
+%     mu = 1;
     X = (1-lFLmax)/lFLmax;
     Y = (1-lFLmax)/tan(aFmax);
     inputsFL = [-Y, -X*p/v;
@@ -168,13 +171,13 @@ else
         if i == 1
             A(cons_count+(1:5),(i-1)*nu+(1:nu)) = [inputsFL; 0, 0];
             A(cons_count+(1:5),nu*N+nx*N+3*N+i) = -ones(5,1);
-            b(cons_count+(1:5)) = [ones(4,1);0] + 1*[-X; X; -X; X; 0] - ...
+            b(cons_count+(1:5)) = mu*[ones(4,1);0] + 1*[-X; X; -X; X; 0] - ...
                                   [statesFL; 0, 0] * x1;
         else
             A(cons_count+(1:5),(i-1)*nu+(1:nu)) = [inputsFL; 0, 0];
             A(cons_count+(1:5),nu*N+(i-2)*nx+(1:nx)) = [statesFL; 0, 0];
             A(cons_count+(1:5),nu*N+nx*N+3*N+i) = -ones(5,1);
-            b(cons_count+(1:5)) = [ones(4,1);0] + 1*[-X; X; -X; X; 0];
+            b(cons_count+(1:5)) = mu*[ones(4,1);0] + 1*[-X; X; -X; X; 0];
         end
         cons_count = cons_count + 5;
         Q(nu*N+nx*N+3*N+i,nu*N+nx*N+3*N+i) = 2*Qenv;
@@ -183,12 +186,12 @@ else
             A(cons_count+(1:5),(N-1)*nu+(1:nu)) = [inputsFL; 0, 0];
             A(cons_count+(1:5),nu*N+(N-1)*nx+(1:nx)) = [statesFL; 0, 0];
             A(cons_count+(1:5),nu*N+nx*N+3*N+N+1) = -ones(5,1);
-            b(cons_count+(1:5)) = [ones(4,1);0] + 1*[-X; X; -X; X; 0];   
+            b(cons_count+(1:5)) = mu*[ones(4,1);0] + 1*[-X; X; -X; X; 0];   
             cons_count = cons_count + 5;
             Q(nu*N+nx*N+3*N+i,nu*N+nx*N+3*N+i) = 2*Qenv;
     
     %% sigmaFR envelope and slack constrains
-    mu = 1;
+%     mu = .4;
     X = (1-lFRmax)/lFRmax;
     Y = (1-lFRmax)/tan(aFmax);
     inputsFR = [-Y, -X*p/v;
@@ -227,7 +230,7 @@ else
 %         obj = obj + R*abs(r - u{1}) + R*(r - u{1}).^2;
 %         obj = obj + R*abs(r - u{2}) + R*(r - u{2}).^2;
     
-    Q(1:nu*abs_num,1:nu*abs_num) = abs_num*diag(repmat(R,1,abs_num));
+    Q(1:nu*abs_num,1:nu*abs_num) = 2*diag(repmat(R,1,abs_num));
     
     c(1:nu*abs_num) = repmat(-2*R.*r',1,abs_num);
     c(end-(nu*abs_num-1):end) = repmat(R,1,abs_num);
