@@ -14,4 +14,4 @@ _tomas.hanis@fel.cvut.cz_.
 # License and Acknowledgment 
 This work is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-This work was supported in part by the Toyota Research on Automated Cars in Europe; in part by the Grant Agency of the Czech Technical University in Prague under Grant SGS22/166/OHK3/3T/13; in part by the Slovak Research and Development Agency under Grant APVV-20-0261 and Grant APVV-21-0019; in part by the Scientific Grant Agency of the Slovak Republic under Grant VEGA 1/0490/23; and in part by the Ministry of Education, Youth and Sports of the Czech Republic, under Project 8X20037.
+This work was supported in part by Toyota Motor Europe; in part by the Grant Agency of the Czech Technical University in Prague under Grant SGS22/166/OHK3/3T/13; in part by the Slovak Research and Development Agency under Grant APVV-20-0261 and Grant APVV-21-0019; in part by the Scientific Grant Agency of the Slovak Republic under Grant VEGA 1/0490/23; and in part by the Ministry of Education, Youth and Sports of the Czech Republic, under Project 8X20037.
